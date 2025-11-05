@@ -9,6 +9,9 @@ connectToDB();
 const authRoutes = require('./Routes/auth-routes');
 app.use('/api/auth', authRoutes);
 
+//Middlewares
+app.use(express.json());
+
 
 const PORT = process.env.PORT || 3000;
 
