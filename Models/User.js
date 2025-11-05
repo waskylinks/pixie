@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
         lowercase : true
     },
     password : {
-        type : Number,
+        type : String,
         required : true,
     },
     role : {
@@ -28,4 +28,4 @@ const userSchema = new mongoose.Schema({
     timestamps : true
 });
 
-module.exports = mongoose.Model('User', userSchema);
+module.exports = mongoose.model('User', userSchema);
