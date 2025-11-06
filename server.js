@@ -10,7 +10,12 @@ connectToDB();
 app.use(express.json());
 
 const authRoutes = require('./Routes/auth-routes');
+
+const homeRoutes = require('./Routes/home-routes');
+
 app.use('/api/auth', authRoutes);
+
+app.use('/api/home', homeRoutes);
 
 const PORT = process.env.PORT || 3000;
 
