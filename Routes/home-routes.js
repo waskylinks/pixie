@@ -1,10 +1,11 @@
 const express = require('express');
-const router = express.Router()
+const router = express.Router();
+const authMiddleware = require('../Middleware/auth-middleware');
 
 
-router.get('/welcome', (req, res) => {
+router.get('/welcome', authMiddleware, (req, res) => {
     res.json({
-        message: 'Welcome to the homepage'
+        message: 'Welcome to the home page'
     });
 });
 
