@@ -9,12 +9,14 @@ router.get('/welcome', authMiddleware, (req, res) => {
     const {username, userId, role} = req.userInfo;
 
     res.json({
+        success: true,
         message: 'Welcome to the home page',
         user: {
             _id: userId,
             username,
             role,
         }
+            
     });
 });
 

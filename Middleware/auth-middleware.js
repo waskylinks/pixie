@@ -10,23 +10,22 @@ const authMiddleware = (req, res, next) => {
     if(!token) {
         return res.status(401).json({
             success: false,
-            message: 'Access denied no token provided, please log in to continue'
+            message: 'Access denied: Token missing. Please log in.'
         });
     }
 
     //decode the token and verify
     try{
         const decodedTokenInfo = jwt.verify(token, process.env.JWT_SECRET_KEY);
-        console.log(decodedTokenInfo);
-
-        req.user = decodedTokenInfo;
+        req.userInfo = decodedTokenInfo;
 
         next();
 
-    } catch(e) {
+    } catch(err) {
+        console.error('Token verification failed:', err.message);
         return res.status(500).json({
             success: false,
-            message: 'Access denied no token provided, please log in to continue'
+            message: 'Invalid or expired token. Please log in again.'
         });
     }
 
