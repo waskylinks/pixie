@@ -13,11 +13,17 @@ const authRoutes = require('./Routes/auth-routes');
 
 const homeRoutes = require('./Routes/home-routes');
 
+const adminRoutes = require('./Routes/admin-routes');
+
+
 app.use('/api/auth', authRoutes);
 
 app.use('/api/home', homeRoutes);
 
+app.use('/api/admin', adminRoutes);
+
 const PORT = process.env.PORT || 3000;
+
 
 app.listen(PORT, () => {
     console.log(`Server is listening on PORT ${PORT}`)
